@@ -1,0 +1,252 @@
+@font-face {
+  font-family: "Roboto-Thin";
+  src: url("../font/Roboto-Thin.ttf"); }
+@font-face {
+  font-family: "ShadowsIntoLight";
+  src: url("../font/ShadowsIntoLight.ttf"); }
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box; }
+
+html {
+  height: 100%; }
+
+body {
+  font-family: Roboto-Thin, Arial, sans-serif;
+  line-height: 1.698;
+  color: #4a4a4a;
+  background-color: #fafafa;
+  margin: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column; }
+
+h4 {
+  margin: 0;
+  padding: 0; }
+
+.header {
+  display: flex;
+  justify-content: center;
+  padding: 1.6rem;
+  background-color: #fff;
+  box-shadow: 0 1px 4px 0 #cbcbcb;
+  z-index: 4; }
+  .header .icon-youtube-play {
+    margin-left: -23%;
+    color: #ff0000; }
+  .header .search-input {
+    width: 36.875rem;
+    align-self: center;
+    font-size: 1rem;
+    border: 1px solid rgba(170, 170, 170, 0.1);
+    outline: none;
+    border-radius: 2px 0 0 2px;
+    padding: 0.37rem;
+    box-shadow: 0px 0 5px 0 #e7dddd;
+    margin-left: 13%; }
+  .header .search-btn {
+    width: 3.875rem;
+    padding: 0.45rem;
+    font-size: 0.99rem;
+    align-self: center;
+    opacity: 0.5;
+    margin: 0;
+    outline: none;
+    border-radius: 0 2px 2px 0;
+    border: 1px solid #d3d3d3;
+    background-color: #f8f8f8;
+    box-shadow: 0px 0 5px 0 #e7dddd;
+    cursor: pointer; }
+    .header .search-btn:hover {
+      background-color: #adadad; }
+
+main {
+  overflow: auto; }
+  main .result-number {
+    border-bottom: 1px solid #e6e6e6;
+    margin: 0 auto;
+    height: 10vh;
+    width: 56.64063vw; }
+    main .result-number .number {
+      color: #000;
+      display: inline-block;
+      margin-top: 2.5rem;
+      font-weight: bold; }
+    main .result-number .icon-th-list {
+      float: right;
+      display: inline-block;
+      margin-top: 2%;
+      margin-right: 2%;
+      font-size: 1.5rem;
+      color: #e6e6e6; }
+  main .container {
+    margin: 0 auto;
+    width: 60vw;
+    padding: 0; }
+    main .container .yt-terms {
+      margin-bottom: 8%; }
+      main .container .yt-terms .yt-api {
+        width: 50%;
+        float: right; }
+      main .container .yt-terms i {
+        margin-left: 4%;
+        font-size: 2rem; }
+      main .container .yt-terms .icon-twitter {
+        color: #55acee; }
+      main .container .yt-terms .icon-facebook {
+        color: #3b5999; }
+      main .container .yt-terms .icon-youtube {
+        color: #ff0000;
+        margin-left: 18%; }
+      main .container .yt-terms .icon-google {
+        color: #4885ed; }
+      main .container .yt-terms .icon-mail {
+        color: #db3236; }
+    main .container .video-box {
+      overflow: hidden;
+      display: flex;
+      height: 21vh;
+      margin: 0.7rem 0; }
+      main .container .video-box .image-thumbnail {
+        height: 100%;
+        width: 15.375rem;
+        cursor: pointer;
+        background-repeat: no-repeat;
+        background-size: 16rem;
+        background-position: center; }
+        main .container .video-box .image-thumbnail::before {
+          content: '';
+          height: inherit;
+          width: inherit;
+          display: inline-block;
+          background-color: rgba(207, 222, 222, 0.5); }
+        main .container .video-box .image-thumbnail:hover::before {
+          content: '';
+          height: inherit;
+          width: inherit;
+          display: inline-block;
+          background-image: url("../img/play-large.png");
+          background-repeat: no-repeat;
+          background-size: 6rem;
+          background-position: center;
+          background-color: unset; }
+      main .container .video-box .describe {
+        display: flex;
+        flex-direction: column;
+        margin: 0 0 0 10px;
+        width: 40%;
+        min-width: 17.625rem;
+        color: #9d9d9d;
+        line-height: 1.5rem;
+        font-size: small; }
+        main .container .video-box .describe .title {
+          color: #000;
+          font-size: 1.1rem;
+          line-height: 1.3rem;
+          margin-top: 1%; }
+        main .container .video-box .describe .channel {
+          font-size: 1.1rem;
+          color: #001df8;
+          cursor: pointer; }
+
+.embed-window {
+  display: none;
+  position: fixed;
+  top: 24%;
+  left: 26%;
+  width: 47vw;
+  min-width: 350px;
+  height: 60vh;
+  z-index: 2; }
+  .embed-window .close-btn {
+    position: absolute;
+    z-index: 3;
+    cursor: pointer;
+    top: -8.4%;
+    left: 95.4%;
+    color: #e5e5e5;
+    display: flex;
+    justify-content: center;
+    width: 5%;
+    height: 7%;
+    font-size: 0.9rem; }
+    .embed-window .close-btn:hover {
+      color: #ff0000; }
+  .embed-window .embed-iframe {
+    position: absolute;
+    top: -8%;
+    width: 47vw;
+    height: 60vh;
+    min-width: 350px;
+    border: none; }
+
+.background-shadow {
+  border: 1px solid;
+  height: 100vh;
+  width: 100%;
+  z-index: 2;
+  position: absolute;
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0.7); }
+
+footer {
+  width: 100%;
+  height: 10vh;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 0 0 5px 0 #c6baba;
+  z-index: 4; }
+  footer span {
+    margin-left: 2%;
+    font-size: 1rem;
+    font-family: "ShadowsIntoLight"; }
+  footer i {
+    font-size: 1.1rem;
+    float: right;
+    margin-top: 1%;
+    margin-right: 0.4rem; }
+  footer .icon-twitter-1 {
+    margin-right: 2%; }
+  footer .previous-btn {
+    margin-left: 9%; }
+  footer .next-btn {
+    margin-left: 0; }
+  footer .next-btn,
+  footer .previous-btn {
+    display: inline-block;
+    width: 20vw; }
+    footer .next-btn .Next,
+    footer .next-btn .Prev,
+    footer .previous-btn .Next,
+    footer .previous-btn .Prev {
+      color: #fff;
+      font-size: 1.2rem;
+      box-shadow: 0 0 5px 0 #282222;
+      cursor: pointer;
+      border-radius: 5px;
+      font-family: "ShadowsIntoLight";
+      background-color: slategrey;
+      text-align: center; }
+    footer .next-btn .Next span,
+    footer .previous-btn .Next span {
+      margin: 0;
+      float: left; }
+    footer .next-btn .Next i,
+    footer .previous-btn .Next i {
+      float: right;
+      margin: 0 0 0 4px; }
+    footer .next-btn .Prev,
+    footer .previous-btn .Prev {
+      margin-left: 10%; }
+      footer .next-btn .Prev span,
+      footer .previous-btn .Prev span {
+        margin: 0;
+        float: right; }
+      footer .next-btn .Prev i,
+      footer .previous-btn .Prev i {
+        float: left; }
+
+/*# sourceMappingURL=style.scss.map */
